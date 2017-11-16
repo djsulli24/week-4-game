@@ -44,43 +44,18 @@ $(document).ready(function(){
     // but is altered through the course of the game. When the resetGame() runs,
     // All the values from playersReset are copied into this object
     var players = {
-        harry: {
-            health:340,
-            base_attack:6,
-            attack:6,
-            counter_attack:25,
-            dead:false,
-            status: "#allplayers"
-        },
-        hermione: {
-            health:340,
-            base_attack:8,
-            attack:8,
-            counter_attack:20,
-            dead:false,
-            status: "#allplayers"            
-        },
-        draco: {
-            health:340,
-            base_attack:8,
-            attack:8,
-            counter_attack:10,
-            dead:false,
-            status: "#allplayers"            
-        },
-        voldemort: {
-            health:340,
-            base_attack:10,
-            attack:10,
-            counter_attack:30,
-            dead:false,
-            status: "#allplayers"            
-        }
+        harry: {},
+        hermione: {},
+        draco: {},
+        voldemort: {}
     };
+
+    copyResetPlayers();
 
     // This array stores the two user-selected players who are competing 
     // against each other, the hero and the enemy
     var competitors = [];
+    var wins = 0;
 
 // ---------------------CLICK EVENTS------------------------------
 
@@ -155,6 +130,10 @@ $(document).ready(function(){
             players[enemy]["dead"] = true;
             players[enemy]["status"] = "#dead"
             competitors.pop();
+            wins++;
+            if (wins === 3) {
+                alert("You won!");
+            }
         }
         // All the players and their statuses are printed on the page
         printResults();
@@ -170,6 +149,7 @@ $(document).ready(function(){
         // This will reset the game, and reset all values for the players object
         copyResetPlayers();
         printResults();
+        wins = 0;
     }
 
     // This function checks each character's "status" in the players object. This
