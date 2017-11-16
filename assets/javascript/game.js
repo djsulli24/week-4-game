@@ -7,34 +7,34 @@ $(document).ready(function(){
     // when the game ends and is reset.
     var playersReset = {
         harry: {
-            health:240,
+            health:340,
             base_attack:6,
             attack:6,
-            counter_attack:40,
+            counter_attack:25,
             dead:false,
             status: "#allplayers"
         },
         hermione: {
-            health:240,
+            health:340,
             base_attack:8,
             attack:8,
-            counter_attack:30,
-            dead:false,
-            status: "#allplayers"            
-        },
-        draco: {
-            health:210,
-            base_attack:5,
-            attack:5,
             counter_attack:20,
             dead:false,
             status: "#allplayers"            
         },
+        draco: {
+            health:340,
+            base_attack:8,
+            attack:8,
+            counter_attack:10,
+            dead:false,
+            status: "#allplayers"            
+        },
         voldemort: {
-            health:300,
+            health:340,
             base_attack:10,
             attack:10,
-            counter_attack:75,
+            counter_attack:30,
             dead:false,
             status: "#allplayers"            
         }
@@ -45,34 +45,34 @@ $(document).ready(function(){
     // All the values from playersReset are copied into this object
     var players = {
         harry: {
-            health:240,
+            health:340,
             base_attack:6,
             attack:6,
-            counter_attack:40,
+            counter_attack:25,
             dead:false,
             status: "#allplayers"
         },
         hermione: {
-            health:240,
+            health:340,
             base_attack:8,
             attack:8,
-            counter_attack:30,
-            dead:false,
-            status: "#allplayers"            
-        },
-        draco: {
-            health:210,
-            base_attack:5,
-            attack:5,
             counter_attack:20,
             dead:false,
             status: "#allplayers"            
         },
+        draco: {
+            health:340,
+            base_attack:8,
+            attack:8,
+            counter_attack:10,
+            dead:false,
+            status: "#allplayers"            
+        },
         voldemort: {
-            health:300,
+            health:340,
             base_attack:10,
             attack:10,
-            counter_attack:75,
+            counter_attack:30,
             dead:false,
             status: "#allplayers"            
         }
@@ -82,7 +82,7 @@ $(document).ready(function(){
     // against each other, the hero and the enemy
     var competitors = [];
 
-// ---------------------FUNCTIONS------------------------------
+// ---------------------CLICK EVENTS------------------------------
 
     // If a user clicks one of the characters in the "all players" section,
     // That character is moved up to either the "hero", or "enemy" section
@@ -99,7 +99,6 @@ $(document).ready(function(){
             competitors[1] = playerName;
         }
         printResults();
-        console.log("Player was clicked: " + $(this).attr("id") );
     });
 
     // When the attack button is clicked, it simulates an attack from the 
@@ -109,9 +108,39 @@ $(document).ready(function(){
         attack(competitors[0],competitors[1]);
     });
 
+    // If no attack has happened between the two characters, the user can
+    // click the enemy to move it back to the all players pool and choose
+    // a different enemy
+    $("#enemy").on("click",".player",function() {
+        
+        var playerName = $(this).attr("id");
+        if (players[playerName]["health"] === playersReset[playerName]["health"]) {
+            // Change character status back to allplayers
+            players[playerName]["status"] = "#allplayers";
+            // remove that player from index 1 of the array
+            competitors.pop();
+        }
+        printResults();
+    });
+
+    // If no enemy is selected, and no attacks have happened, the user can click
+    // the hero to return it to the all players pool and choose a different one
+    $("#hero").on("click",".player",function() {
+        
+        var playerName = $(this).attr("id");
+        if (players[playerName]["health"] === playersReset[playerName]["health"] && competitors.length === 1) {
+            // Change character status back to allplayers
+            players[playerName]["status"] = "#allplayers";
+            // remove that player from index 0 of the array
+            competitors.pop();
+        }
+        printResults();
+    });    
+
+    // ---------------------FUNCTIONS------------------------------
+
     // The attack function alters the following values of the hero and
     // the enemy: health, attack
-
     function attack(hero, enemy) {
         players[enemy]["health"] -= players[hero]["attack"];        
         players[hero]["health"] -= players[enemy]["counter_attack"];
