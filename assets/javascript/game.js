@@ -80,18 +80,23 @@ $(document).ready(function(){
 
 // ---------------------FUNCTIONS------------------------------
 
-    $(".player").click(function() {
+    $(".area").on("click",".player",function() {
 
-        var playerName = $(this).val();
+        var playerName = $(this).attr("id");
         if (competitors.length === 0) {
-            // Set player's status to hero
-            // add that player to the array at position 0
+            players[playerName]["status"] = "#hero";
+            competitors[0] = playerName;
         }
         else if (competitors.length === 1) {
-            // Set that player's status to enemy
-            // Add that player to the array at position 1
+            players[playerName]["status"] = "#enemy";
+            competitors[1] = playerName;
         }
         printResults();
+        console.log("Player was clicked: " + $(this).attr("id") );
+    });
+
+    $("#attack").click(function() {
+        attack(competitors[0],competitors[1]);
     });
 
     function attack(hero, enemy) {
@@ -124,10 +129,10 @@ $(document).ready(function(){
         $("#allplayers").empty();
         $("#hero").empty();
         $("#enemy").empty();
-        $(players.harry.status).append("<div class='player' value='harry'>Harry " + players.harry.health + "</div>");
-        $(players.hermione.status).append("<div class='player' value='hermione'>Hermione " + players.hermione.health + "</div>");
-        $(players.draco.status).append("<div class='player' value='draco'>Draco " + players.draco.health + "</div>");
-        $(players.voldemort.status).append("<div class='player' value='voldemort'>Voldemort " + players.voldemort.health + "</div>");        
+        $(players.harry.status).append("<div class='player' id='harry'>Harry " + players.harry.health + "</div>");
+        $(players.hermione.status).append("<div class='player' id='hermione'>Hermione " + players.hermione.health + "</div>");
+        $(players.draco.status).append("<div class='player' id='draco'>Draco " + players.draco.health + "</div>");
+        $(players.voldemort.status).append("<div class='player' id='voldemort'>Voldemort " + players.voldemort.health + "</div>");        
     }
 
     function copyResetPlayers() {
