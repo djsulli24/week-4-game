@@ -1,0 +1,15 @@
+.player {
+    height: 150px;
+    width: 150px;
+    border: solid 1px black;
+    display: inline-block;
+}
+
+.area {
+    border: solid 1px black;
+    min-height: 40px;
+}
+
+#dead {
+    display: none;
+}
