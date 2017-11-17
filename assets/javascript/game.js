@@ -23,7 +23,7 @@ $(document).ready(function(){
             status: "#allplayers"            
         },
         draco: {
-            health:340,
+            health:375,
             base_attack:8,
             attack:8,
             counter_attack:10,
@@ -31,7 +31,7 @@ $(document).ready(function(){
             status: "#allplayers"            
         },
         voldemort: {
-            health:340,
+            health:305,
             base_attack:10,
             attack:10,
             counter_attack:30,
@@ -40,9 +40,9 @@ $(document).ready(function(){
         }
     };
     
-    // This object starts off with the exact same values as the playersReset object above,
-    // but is altered through the course of the game. When the resetGame() runs,
-    // All the values from playersReset are copied into this object
+    // This object starts off blank, but is copied from the above playersReset
+    // object via copyResetPlayers(). It is altered through the course of the game. 
+    // When the resetGame() runs, All the values from playersReset are copied into this object
     var players = {
         harry: {},
         hermione: {},
@@ -50,6 +50,7 @@ $(document).ready(function(){
         voldemort: {}
     };
 
+    // Fills in the above object with all values
     copyResetPlayers();
 
     // This array stores the two user-selected players who are competing 
@@ -153,7 +154,7 @@ $(document).ready(function(){
     }
 
     // This function checks each character's "status" in the players object. This
-    // status will match one of the div id's on the page (either hero, enemy, or allplayers).
+    // status will match one of the div IDs on the page (either hero, enemy, or allplayers).
     // Each character (and their health score) is printed to the appropriate div, based
     // on their status
     function printResults () {
@@ -180,3 +181,45 @@ $(document).ready(function(){
 
     resetGame();
 })
+
+
+// PSEUDOCODE
+
+// -----------------VARIABLES------------------
+
+// OBJECT playersReset { holds all the initial values for the characters:
+// health points, base attack, attack, counter attack, dead (boolean),
+// status (contains the div they'll be written to by jQuery) } 
+
+// OBJECT players { This is the actual object that will be updated
+// during the game, when characters attack each other and die. It's
+// initially empty but has all the values from the above object copied in }
+
+// ARRAY competitors - holds the character the users plays as, plus the opponent
+
+// VAR wins - increments every time the user defeats another character
+
+// -----------------FUNCTIONS-------------------
+
+// attack(hero, enemy) { 
+
+    // hero loses health points
+    // enemy loses health points
+    // hero attack power += base attack
+    // IF the hero dies, the game is over
+    // IF the enemy dies, he/she is removed from the page
+    // IF all enemies have been defeated, the game is over
+    // printresults();
+
+// }
+
+// gameOver() {
+    // Alert, game is over
+// }
+
+// resetGame() {Resets the game}
+// printResults() {Prints all characters and values on the page}
+// copyResetPlayers() {Copies all values from playersReset to players}
+
+
+
