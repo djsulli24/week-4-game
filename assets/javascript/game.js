@@ -151,7 +151,9 @@ $(document).ready(function(){
 
     // This alerts the user that the game is over
     function gameOver() {
-        alert("Game Over");
+        if(confirm("You lost. Would you like to play again?")) {
+            resetGame();
+        }
     }
     
     // This resets all health/attack values for all characters in the game
