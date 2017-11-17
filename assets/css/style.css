@@ -16,18 +16,126 @@ body, html {
     background-color: black;
 }
 
+.allplayers {
+    min-height: 150px;
+}
+
 .player {
     height: 150px;
     width: 150px;
-    border: solid 1px black;
+    border: solid 1px #444;
     display: inline-block;
+    position: relative;
 }
 
 .area {
-    border: solid 1px black;
-    min-height: 40px;
+    /* border: solid 1px #444; */
+    min-height: 152px;
+    overflow: auto;
+    min-width: 152px;
+    text-align: center;
+    align-content: center;
+}
+
+.playersgallery {
+    /* border: solid 1px #444; */
+    min-height: 152px;
+    overflow: auto;
+    text-align: center;
+    align-content: center;
+}
+
+.stage {
+    border: solid 3px #444;
+    height: 156px;
+    width: 156px;
+    margin: 0 auto;
+}
+
+.playersgallery .player {
+    margin: 0 20px;
 }
 
 #dead {
     display: none;
 }
+
+.attackdiv {
+    text-align: center;
+}
+
+.title {
+    text-align: center;
+}
+
+h1 {
+    margin: 0px 0px 10px 0px;
+    text-align: center;
+}
+
+.jumbotron {
+    background-color: transparent;
+    min-height: 195px;
+}
+
+.row {
+    margin-bottom: 30px;
+}
+
+.btn-danger {
+    margin-top: 90px;
+}
+
+.alerts {
+    text-align: center;
+}
+
+#harry {
+    background-image: url(../images/harry.jpg);
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+}
+
+#hermione {
+    background-image: url(../images/hermione.jpg);
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+}
+
+#draco {
+    background-image: url(../images/draco.jpg);
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+}
+
+#voldemort {
+    background-image: url(../images/voldemort.jpg);
+    background-size: 150px 150px;
+    background-repeat: no-repeat;
+}
+
+.playerstats {
+    position: absolute;
+    top: 118px;
+    height: 30px;
+    text-align: center;
+    color: white;
+    background: rgba(0,0,0,0.5);
+    width: 100%;
+    padding: 5px;
+}
+
+.red {
+    color: #cc2c2c;
+}
+
+/* #attack {
+    width: 100%;
+    background-color: #cc2c2c;
+    color: white;
+    margin-top: 90px;
+    text-align: center;
+    min-height: 40px;
+    padding: 10px;
+    font-size: large;
+} */
