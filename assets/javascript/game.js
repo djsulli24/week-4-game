@@ -160,6 +160,7 @@ $(document).ready(function(){
         copyResetPlayers();
         printResults();
         wins = 0;
+        competitors = [];
     }
 
     // This function checks each character's "status" in the players object. This

@@ -76,6 +76,7 @@ h1 {
 .jumbotron {
     background-color: transparent;
     min-height: 195px;
+    margin-bottom: 0px;
 }
 
 .row {
