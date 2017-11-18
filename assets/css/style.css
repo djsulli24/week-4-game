@@ -1,6 +1,6 @@
 body, html {
     height: 100%;
-    font-family: "Trebuchet MS"
+    font-family: 'Vollkorn SC', serif;
 }
 
 .body-container {
@@ -66,11 +66,13 @@ body, html {
 
 .title {
     text-align: center;
+    font-family: 'Vollkorn SC', serif;
 }
 
 h1 {
     margin: 0px 0px 10px 0px;
     text-align: center;
+    font-family: 'Vollkorn SC', serif;
 }
 
 .jumbotron {
@@ -128,6 +130,10 @@ h1 {
 
 .red {
     color: #cc2c2c;
+}
+
+.alerts {
+    font-size: large;
 }
 
 /* #attack {
