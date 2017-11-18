@@ -13,7 +13,7 @@ body, html {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: black;
+    background-color: white;
 }
 
 .allplayers {
@@ -136,13 +136,21 @@ h1 {
     font-size: large;
 }
 
-/* #attack {
-    width: 100%;
-    background-color: #cc2c2c;
-    color: white;
-    margin-top: 90px;
-    text-align: center;
-    min-height: 40px;
-    padding: 10px;
-    font-size: large;
-} */
+@media screen and (max-width: 990px) {
+    .body-container {
+        background-image: url(../images/parchment.jpg);
+            
+        /* Full height */
+        height: 100%; 
+    
+        /* Center and scale the image nicely */
+        background-position: center;
+        background-repeat: repeat-y;
+        background-size: cover;
+        background-color: black;
+    }
+
+    .btn-danger {
+        margin: 6% 0;
+    }
+}
