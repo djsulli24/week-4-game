@@ -11,7 +11,7 @@ body, html {
 
     /* Center and scale the image nicely */
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     background-size: cover;
     background-color: white;
 }
@@ -77,8 +77,9 @@ h1 {
 
 .jumbotron {
     background-color: transparent;
-    min-height: 195px;
+    /* min-height: 225px; */
     margin-bottom: 0px;
+    padding-bottom: 20px;
 }
 
 .row {
@@ -91,6 +92,10 @@ h1 {
 
 .alerts {
     text-align: center;
+}
+
+.alertssection {
+    min-height: 50px;
 }
 
 #harry {
@@ -137,20 +142,13 @@ h1 {
 }
 
 @media screen and (max-width: 990px) {
-    .body-container {
-        background-image: url(../images/parchment.jpg);
-            
-        /* Full height */
-        height: 100%; 
-    
-        /* Center and scale the image nicely */
-        background-position: center;
-        background-repeat: repeat-y;
-        background-size: cover;
-        background-color: black;
-    }
 
     .btn-danger {
         margin: 6% 0;
     }
+
+    /* .jumbotron {
+        min-height: 320px;
+    } */
+    
 }
