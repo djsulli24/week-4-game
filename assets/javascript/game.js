@@ -7,7 +7,7 @@ $(document).ready(function(){
     // when the game ends and is reset.
     var playersReset = {
         harry: {
-            health:340,
+            health:305,
             base_attack:6,
             attack:6,
             counter_attack:25,
@@ -15,7 +15,7 @@ $(document).ready(function(){
             status: "#allplayers"
         },
         hermione: {
-            health:340,
+            health:300,
             base_attack:8,
             attack:8,
             counter_attack:20,
@@ -31,7 +31,7 @@ $(document).ready(function(){
             status: "#allplayers"            
         },
         voldemort: {
-            health:305,
+            health:250,
             base_attack:10,
             attack:10,
             counter_attack:30,
