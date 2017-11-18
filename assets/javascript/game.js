@@ -86,8 +86,8 @@ $(document).ready(function(){
             $(".alerts").text("You must choose your character and an opponent!");
         }
         else {
-            attack(competitors[0],competitors[1]);
             $(".alerts").empty();
+            attack(competitors[0],competitors[1]);
         }
     });
 
@@ -163,6 +163,8 @@ $(document).ready(function(){
         printResults();
         wins = 0;
         competitors = [];
+        $(".alerts").empty();
+        $(".alerts").text("First, choose your character. Then, choose your first opponent. Attack until you have defeated that character. Repeat with the rest. Good luck!");
     }
 
     // This function checks each character's "status" in the players object. This
@@ -173,10 +175,10 @@ $(document).ready(function(){
         $("#allplayers").empty();
         $("#hero").empty();
         $("#enemy").empty();
-        $(players.harry.status).append("<div class='player' id='harry'><div class='playerstats'>Harry <span class='glyphicon glyphicon-heart red'></span> " + players.harry.health + "</div></div>");
-        $(players.hermione.status).append("<div class='player' id='hermione'><div class='playerstats'>Hermione <span class='glyphicon glyphicon-heart red'></span> " + players.hermione.health + "</div></div>");
-        $(players.draco.status).append("<div class='player' id='draco'><div class='playerstats'>Draco <span class='glyphicon glyphicon-heart red'></span> " + players.draco.health + "</div></div>");
-        $(players.voldemort.status).append("<div class='player' id='voldemort'><div class='playerstats'>Voldemort <span class='glyphicon glyphicon-heart red'></span> " + players.voldemort.health + "</div></div>");        
+        $(players.harry.status).append("<div class='player' id='harry'><div class='playerstats'>Harry &nbsp;&nbsp;<span class='glyphicon glyphicon-heart red'></span> " + players.harry.health + "</div></div>");
+        $(players.hermione.status).append("<div class='player' id='hermione'><div class='playerstats'>Hermione &nbsp;&nbsp;<span class='glyphicon glyphicon-heart red'></span> " + players.hermione.health + "</div></div>");
+        $(players.draco.status).append("<div class='player' id='draco'><div class='playerstats'>Draco &nbsp;&nbsp;<span class='glyphicon glyphicon-heart red'></span> " + players.draco.health + "</div></div>");
+        $(players.voldemort.status).append("<div class='player' id='voldemort'><div class='playerstats'>Voldemort &nbsp;&nbsp;<span class='glyphicon glyphicon-heart red'></span> " + players.voldemort.health + "</div></div>");        
     }
 
     // This copies all values from playersReset, which remains unaltered during the
